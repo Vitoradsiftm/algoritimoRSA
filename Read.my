@@ -1,18 +1,14 @@
-
-
----
-
-```markdown
 # 🔐 Implementação do Algoritmo RSA em Python
 
 ## 📌 Sobre o projeto
 
-Este projeto tem como objetivo implementar, do zero, o algoritmo de criptografia assimétrica RSA (Rivest-Shamir-Adleman), sem utilizar bibliotecas prontas de criptografia.
+Este projeto tem como objetivo implementar, do zero, o algoritmo de criptografia assimétrica **RSA (Rivest-Shamir-Adleman)**, sem utilizar bibliotecas prontas de criptografia.
 
 A aplicação realiza todo o ciclo da criptografia RSA:
-- Geração de chaves pública e privada
-- Cifragem de mensagens
-- Decifragem de mensagens
+
+* 🔑 Geração de chaves pública e privada
+* 🔒 Cifragem de mensagens
+* 🔓 Decifragem de mensagens
 
 O foco principal é demonstrar, na prática, como funciona a segurança baseada em criptografia assimétrica.
 
@@ -22,29 +18,28 @@ O foco principal é demonstrar, na prática, como funciona a segurança baseada 
 
 ### 🔢 Números Primos
 
-Números primos são aqueles que possuem apenas dois divisores: 1 e eles mesmos.
+Números primos são aqueles que possuem apenas dois divisores: **1 e eles mesmos**.
 
-No RSA, dois números primos distintos (p e q) são escolhidos para gerar a base da criptografia. A segurança do algoritmo está diretamente ligada à dificuldade de fatorar números grandes.
+No RSA, dois números primos distintos (`p` e `q`) são escolhidos para gerar a base da criptografia.
+A segurança do algoritmo está diretamente ligada à dificuldade de fatorar números grandes.
 
 ---
 
 ### 📐 Aritmética Modular
 
-A aritmética modular trabalha com o resto da divisão entre números.
+A aritmética modular trabalha com o **resto da divisão entre números**.
 
-Exemplo:
-```
+**Exemplo:**
 
+```txt
 17 mod 5 = 2
-
 ```
 
 No RSA, utilizamos exponenciação modular para cifrar e decifrar mensagens:
-```
 
+```txt
 C = M^e mod n
 M = C^d mod n
-
 ```
 
 ---
@@ -52,10 +47,9 @@ M = C^d mod n
 ### 🧮 Totiente de Euler (φ)
 
 O totiente de Euler é calculado da seguinte forma:
-```
 
+```txt
 φ(n) = (p - 1) × (q - 1)
-
 ```
 
 Esse valor é essencial para a geração das chaves do RSA.
@@ -64,91 +58,90 @@ Esse valor é essencial para a geração das chaves do RSA.
 
 ### 🔁 Algoritmo de Euclides Estendido
 
-Esse algoritmo é utilizado para calcular o inverso modular de um número. No RSA, ele é usado para encontrar o valor da chave privada (d).
+Esse algoritmo é utilizado para calcular o **inverso modular** de um número.
+No RSA, ele é usado para encontrar o valor da chave privada (`d`).
 
 ---
 
 ## 🔑 Como o RSA funciona
 
 1. Escolhemos dois números primos:
-```
 
+```txt
 p e q
-
 ```
 
 2. Calculamos:
-```
 
+```txt
 n = p × q
 φ(n) = (p - 1) × (q - 1)
-
 ```
 
-3. Escolhemos um número (e) tal que:
-```
+3. Escolhemos um número `e` tal que:
 
+```txt
 mdc(e, φ(n)) = 1
-
 ```
 
-4. Calculamos o inverso modular de e:
-```
+4. Calculamos o inverso modular de `e`:
 
+```txt
 d ≡ e⁻¹ mod φ(n)
-
 ```
 
 5. Definimos as chaves:
-- Chave pública: (e, n)
-- Chave privada: (d, n)
+
+* 🔓 **Chave pública:** `(e, n)`
+* 🔒 **Chave privada:** `(d, n)`
 
 ---
 
 ## 🔐 Cifragem e Decifragem
 
-### Cifragem
+### 🔒 Cifragem
+
 A mensagem é convertida para valores numéricos e cifrada com a chave pública:
-```
 
+```txt
 C = M^e mod n
-
 ```
 
-### Decifragem
+---
+
+### 🔓 Decifragem
+
 A mensagem original é recuperada com a chave privada:
-```
 
+```txt
 M = C^d mod n
-
 ```
 
 ---
 
 ## ▶️ Como executar o projeto
 
-1. Clone o repositório:
+### 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/rsa-python.git
 ```
 
-git clone [https://github.com/seu-usuario/rsa-python.git](https://github.com/seu-usuario/rsa-python.git)
+### 2️⃣ Acessar a pasta
 
-```
-
-2. Acesse a pasta:
-```
-
+```bash
 cd rsa-python
-
 ```
 
-3. Execute o programa:
-```
+### 3️⃣ Executar o programa
 
+```bash
 python main.py
-
 ```
 
-4. Digite uma mensagem para testar a criptografia
+### 4️⃣ Testar
+
+Digite uma mensagem para ver o processo de criptografia funcionando.
 
 ---
 
@@ -156,29 +149,37 @@ python main.py
 
 O vídeo de demonstração deve conter:
 
-- Execução do sistema
-- Geração das chaves pública e privada
-- Inserção de uma mensagem
-- Exibição da mensagem cifrada
-- Exibição da mensagem decifrada
+* ▶️ Execução do sistema
+* 🔑 Geração das chaves pública e privada
+* ⌨️ Inserção de uma mensagem
+* 🔒 Exibição da mensagem cifrada
+* 🔓 Exibição da mensagem decifrada
 
 ---
 
 ## ⚠️ Observações
 
-- Este projeto tem fins didáticos
-- Os números primos utilizados são pequenos, o que não garante segurança real
-- Em aplicações reais, são utilizados primos muito grandes (centenas ou milhares de bits)
+* 📚 Este projeto tem fins didáticos
+* 🔢 Os números primos utilizados são pequenos (não seguros)
+* 🛡️ Em aplicações reais, são usados primos com centenas ou milhares de bits
 
 ---
 
 ## 👨‍💻 Tecnologias utilizadas
 
-- Python 3
-- Conceitos de matemática aplicada à criptografia
+* 🐍 Python 3
+* 🧮 Conceitos de matemática aplicada à criptografia
 
 ---
 
 ## 📌 Conclusão
 
-Com este projeto, é possível entender na prática como funciona a criptografia RSA, desde a geração das chaves até o processo de cifragem e decifragem, reforçando conceitos importantes como aritmética modular, números primos e segurança da informação.
+Com este projeto, é possível entender na prática como funciona a criptografia RSA, desde a geração das chaves até o processo de cifragem e decifragem.
+
+O trabalho reforça conceitos importantes como:
+
+* Aritmética modular
+* Números primos
+* Segurança da informação
+
+---
